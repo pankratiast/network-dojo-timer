@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Dojo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="backdrop">
+        <h1>Network Dojo</h1>
+        <div class="slider-container">
+            <label for="roundTime">Round Time: <span id="roundTimeValue">3</span> Minutes</label>
+            <input type="range" id="roundTime" min="0.5" max="30" value="3" step="0.5">
+            <input type="number" id="roundTimeManual" placeholder="Manual Input">
+        </div>
+
+        <div class="slider-container">
+            <label for="numRounds">Number of Rounds: <span id="numRoundsValue">3</span></label>
+            <input type="range" id="numRounds" min="1" max="30" value="3">
+            <input type="number" id="numRoundsManual" placeholder="Manual Input">
+        </div>
+
+        <div class="slider-container">
+            <label for="breakTimeSliderValue">Break Time: <span id="breakTimeSliderValue">60</span> Seconds</label>
+            <input type="range" id="breakTimeSlider" min="0" max="300" value="60" step="10">
+            <input type="number" id="breakTime" placeholder="Manual Input">
+        </div>
+
+        <button id="startStop">Start</button>
+        <button id="reset">Reset</button>
+        <div id="timer">00:00</div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

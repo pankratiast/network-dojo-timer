@@ -1,0 +1,90 @@
+/* style.css */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: url('image_6.jpg') no-repeat center center fixed; /* Backdrop image */
+    background-size: cover;
+    color: white;
+}
+
+.backdrop {
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent backdrop for readability */
+    padding: 20px;
+    border-radius: 10px;
+    margin: 50px auto;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.slider-container {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="range"],
+input[type="number"] {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+button {
+    margin: 10px 5px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#timer {
+    font-size: 36px;
+    margin-top: 20px;
+}
+
+/* Existing slider textures */
+input[type="range"] {
+  width: 100%;
+  -webkit-appearance: none;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  transition: opacity .2s;
+  height: 15px;
+  border-radius: 5px;
+  background-image: url('path-to-your-stone-marble-texture.png'); /* Stone/Marble texture */
+  background-size: cover;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: url('path-to-your-river-image.png') center / cover; /* Blue river which flows */
+  cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: url('path-to-your-river-image.png') center / cover; /* Blue river which flows */
+  cursor: pointer;
+}

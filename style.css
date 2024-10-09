@@ -18,8 +18,10 @@ body {
 }
 
 h1 {
-    font-size: 24px;
+    font-size: 50px; /* Larger size */
+    font-family: 'Libre Baskerville', serif; /* Change to your chosen font */
     margin-bottom: 20px;
+    font-weight: bold; /* To ensure it's bold if needed */
 }
 
 .slider-container {
@@ -53,8 +55,14 @@ button:hover {
 }
 
 #timer {
-    font-size: 36px;
-    margin-top: 20px;
+    font-size: 36px; /* or whatever size you prefer */
+    margin-top: 20px; /* optional, for spacing */
+    text-shadow: 
+        -1px -1px 0 #000,  
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000; /* Creates a subtle black outline */
+    color: white; /* or another color that contrasts well with your background */
 }
 
 /* Existing slider textures */
@@ -71,20 +79,26 @@ input[type="range"] {
   background-size: cover;
 }
 
+/* For WebKit browsers */
 input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  background: url('path-to-your-river-image.png') center / cover; /* Blue river which flows */
-  cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 28px; /* Slightly larger for visibility */
+    height: 28px; /* Slightly larger for visibility */
+    border-radius: 50%; /* Makes it circular */
+    background: 
+        radial-gradient(circle at 50% 50%, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 100%), /* Light inner highlight */
+        radial-gradient(circle at 50% 50%, #606060 0%, #303030 100%); /* Darker base with slight gradient */
+    border: 2px solid #000; /* Black border */
+    cursor: pointer;
+    margin-top: -10px; /* Adjust for vertical alignment */
 }
 
+/* For Firefox */
 input[type="range"]::-moz-range-thumb {
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  background: url('path-to-your-river-image.png') center / cover; /* Blue river which flows */
-  cursor: pointer;
-}
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: 
+        radial-gradient(circle at 50% 50%, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 100%),
+        radial-gradient(circle at 50% 50%, #606060 0%, #303030 100%);

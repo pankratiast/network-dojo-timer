@@ -68,12 +68,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function startTimer() {
         if (!isRunning) {
-            timeLeft = parseFloat(roundTime.value) * 60; // Convert roundTime to minutes
+            // Only reset time if starting fresh (not resuming from pause)
+            if (timeLeft === 0) {
+                timeLeft = parseFloat(roundTime.value) * 60;
+                currentRound = 0;
+                isBreak = false;
+                roundStartSound.play();
+            }
             timerElement.textContent = formatTime(timeLeft);
             isRunning = true;
             interval = setInterval(updateTimer, 1000);
             startStopButton.textContent = 'Stop';
-            roundStartSound.play(); // Play the round start sound when the timer starts
         } else {
             clearInterval(interval);
             isRunning = false;
@@ -97,13 +102,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 // End of round, check if more rounds left
                 currentRound++;
                 if (currentRound < totalRounds) {
-                    timeLeft = parseInt(breakTime.value); // Break time in seconds
+                    timeLeft = parseFloat(breakTime.value); // Break time in seconds
                     roundEndSound.play();
                     isBreak = true;
                     interval = setInterval(updateTimer, 1000);
                 } else {
                     allDoneSound.play();
                     isRunning = false;
+                    isBreak = false;
                     startStopButton.textContent = 'Start';
                 }
             }
@@ -112,13 +118,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function formatTime(seconds) {
         const minutes = Math.floor(seconds / 60);
-        const remainingSeconds = seconds % 60;
+        const remainingSeconds = Math.floor(seconds % 60);
         return `${minutes < 10 ? '0' + minutes : minutes}:${remainingSeconds < 10 ? '0' + remainingSeconds : remainingSeconds}`;
     }
 
     function resetTimer() {
         clearInterval(interval);
         isRunning = false;
+        isBreak = false;
         currentRound = 0;
         timeLeft = 0;
         timerElement.textContent = '00:00';

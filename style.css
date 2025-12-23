@@ -99,6 +99,78 @@ input[type="range"]::-moz-range-thumb {
     width: 28px;
     height: 28px;
     border-radius: 50%;
-    background: 
+    background:
         radial-gradient(circle at 50% 50%, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 100%),
         radial-gradient(circle at 50% 50%, #606060 0%, #303030 100%);
+    border: 2px solid #000;
+    cursor: pointer;
+}
+
+/* Mobile-friendly styles */
+@media screen and (max-width: 600px) {
+    .backdrop {
+        margin: 20px auto;
+        padding: 15px;
+        width: 95%;
+    }
+
+    h1 {
+        font-size: 32px;
+        margin-bottom: 15px;
+    }
+
+    #timer {
+        font-size: 48px;
+        margin-top: 15px;
+    }
+
+    .slider-container {
+        margin-bottom: 20px;
+    }
+
+    label {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+
+    input[type="range"] {
+        height: 20px;
+        margin-bottom: 8px;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+        width: 36px;
+        height: 36px;
+        margin-top: -12px;
+    }
+
+    input[type="range"]::-moz-range-thumb {
+        width: 36px;
+        height: 36px;
+    }
+
+    input[type="number"] {
+        font-size: 16px;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+
+    button {
+        font-size: 18px;
+        padding: 15px 30px;
+        margin: 10px 8px;
+        min-width: 100px;
+    }
+}
+
+/* Prevent zoom on input focus for iOS */
+input[type="number"] {
+    font-size: 16px;
+}
+
+/* Touch-friendly button active states */
+button:active {
+    background-color: #3d8b40;
+    transform: scale(0.98);
+}
